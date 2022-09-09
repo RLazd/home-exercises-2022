@@ -3,14 +3,14 @@ package io.codelex.arithmetic.practice;
 public class Exercise8 {
 
     String employee;
-    double basePay; //teica,ka pie naudas double nelieto. ko lieto?
+    double basePay;
     int hoursWorked;
-    //double weeklyPay; - jāliek pie metodes vai sākumā?
+
 
     public static void main(String[] args) {
         Exercise8 employee1 = new Exercise8("Employee 1", 7.50, 35);
         Exercise8 employee2 = new Exercise8("Employee 2", 8.20, 47);
-        Exercise8 employee3 = new Exercise8("Employee 3", 10.00, 47);
+        Exercise8 employee3 = new Exercise8("Employee 3", 10.00, 67);
 
         Exercise8[] employeeList = {employee1, employee2, employee3};
 
@@ -20,13 +20,13 @@ public class Exercise8 {
         //calculateweeklypay
         //make table
 
-        System.out.println("| Employee  | Base Pay | Hours Worked | WeeklyPay");
-        System.out.println("| --------- | --------- | ----------- | ---------");
+        System.out.println("| Employee   | Base Pay   | Hours Worked  | WeeklyPay  |");
+        System.out.println("| ---------  | ---------- | ------------- | ---------  |");
 
         for (int i = 0; i < employeeList.length; i++) {
-            System.out.println(String.format("|%12s|%12.2d|%12.2d|%12.2d|",
+            System.out.println(String.format("|%12s|%12.2f|%15d|%12s|",
                     employeeList[i].employee, employeeList[i].basePay,
-                    employeeList[i].hoursWorked, employeeList[i].calculateWeeklyPay() )); /// ?
+                    employeeList[i].hoursWorked, employeeList[i].calculateWeeklyPay(employeeList[i].basePay,employeeList[i].hoursWorked ) )); /// ?
         }
 
 
@@ -38,17 +38,16 @@ public class Exercise8 {
         this.hoursWorked = hours;
     }
 
-    public static void calculateWeeklyPay(double basePay, int hoursWorked) {
+    public static String calculateWeeklyPay(double basePay, int hoursWorked) {
 
-        double weeklyPay = 0; //kā assignot ??
         if (checkBasePayAndHours(basePay, hoursWorked)) {
              if (hoursWorked <= 40) {
-                 weeklyPay = basePay * hoursWorked;
+                 return String.valueOf(basePay * hoursWorked);
              } else {
-                 weeklyPay = basePay * 40 + basePay * (hoursWorked-40) * 1.5;
+                 return String.valueOf(basePay * 40 + basePay * (hoursWorked-40) * 1.5);
              }
         } else {
-            throw new exception_class("error message")//throw error!!
+            return "Error";
         }
     }
 
@@ -57,9 +56,8 @@ public class Exercise8 {
             if (hoursWorked < 60) {
                 return true;
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
 }

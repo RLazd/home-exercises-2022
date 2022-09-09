@@ -6,17 +6,31 @@ import java.math.BigDecimal;
 
 class Geometry {
     static double areaOfCircle(BigDecimal radius) {
+        if (radius.doubleValue() < 0) {
+            throw new NoCodeWrittenException(); //nezinu, kada kluda jaliek
+        }
         return radius.doubleValue() * Math.PI * 2;
-        //throw new NoCodeWrittenException();
     }
 
     static double areaOfRectangle(BigDecimal length, BigDecimal width) {
+        if (length.doubleValue() < 0 ) {
+            throw new NoCodeWrittenException();
+        }
+        if (width.doubleValue() < 0 ) {
+            throw new NoCodeWrittenException();
+        }
         return length.doubleValue() * width.doubleValue();
 
         //throw new NoCodeWrittenException();
     }
 
     static double areaOfTriangle(BigDecimal base, BigDecimal h) {
+        if (base.doubleValue() < 0) {
+            throw new NoCodeWrittenException();
+        }
+        if (h.doubleValue() < 0 ) {
+            throw new NoCodeWrittenException();
+        }
         return base.doubleValue() * h.doubleValue() * 0.5;
         //throw new NoCodeWrittenException();
     }

@@ -2,27 +2,29 @@ package io.codelex.typesandvariables.practice;
 
 import io.codelex.NoCodeWrittenException;
 
+//Es nesapratu uzdevumu, tādēļ atstāju divas variācijas
 public class SadFor {
     public static void main(String[] args) {
-        System.out.println(test1());
+
+        System.out.println(printFirstNumberWhichPassesIf());
+        printAllNumbersUntilIfPassed();
     }
 
-    public static int test1() {
+    public static int printFirstNumberWhichPassesIf() {
         for (int i = 0; i < 10; i++) {
-            if (Math.sqrt(i) > 2.5)
+            if (Math.sqrt(i) > 2.5) {
                 return i;
+            }
         }
-//fixme
+        throw new NoCodeWrittenException();
+    }
+
+    public static void printAllNumbersUntilIfPassed(){
         for (int i = 0; i < 10; i++) {
-            //System.out.println(i);
-            //System.out.println(Math.sqrt(i));
             if (Math.sqrt(i) > 2.5) {
                 break;
             }
-            System.out.println(i);
+            System.out.print(i);
         }
-        //return i;
-
-        throw new NoCodeWrittenException();
     }
 }

@@ -61,7 +61,7 @@ public class CalculateArea {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("What is the circle's radius? ");
 
-        radius = BigDecimal.valueOf(keyboard.nextDouble());
+        radius = keyboard.nextBigDecimal();
 
         // Display output
         System.out.println("The circle's area is "
@@ -77,13 +77,13 @@ public class CalculateArea {
 
         // Get length
         System.out.print("Enter length? ");
-        //todo
-        length = BigDecimal.valueOf(keyboard.nextDouble());
+
+        length = keyboard.nextBigDecimal();
 
         // Get width
         System.out.print("Enter width? ");
-        //todo
-        width = BigDecimal.valueOf(keyboard.nextDouble());
+
+        width = keyboard.nextBigDecimal();
 
         // Display output
         System.out.println("The rectangle's area is "
@@ -99,29 +99,16 @@ public class CalculateArea {
 
         // Get the base
         System.out.print("Enter length of the triangle's base? ");
-        //todo
-        base = BigDecimal.valueOf(keyboard.nextDouble());
+
+        base = keyboard.nextBigDecimal();
 
         // Get the height
         System.out.print("Enter triangle's height? ");
-        //todo
-        height = BigDecimal.valueOf(keyboard.nextDouble());
+
+        height = keyboard.nextBigDecimal();
 
         // Display the triangle's area.
         System.out.println("The triangle's area is "
                 + Geometry.areaOfTriangle(base, height));
     }
 }
-//        Next write a program to test the class, which displays the following menu and responds to the user’s selection:
-//
-//        ```
-//        Geometry calculator:
-//
-//        Calculate the Area of a Circle
-//        Calculate the Area of a Rectangle
-//        Calculate the Area of a Triangle
-//        Quit
-//        Enter your choice (1-4):
-//        ```
-//
-//        Display an error message if the user enters a number outside the range of 1 through 4 when selecting an item from the menu.

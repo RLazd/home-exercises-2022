@@ -1,6 +1,8 @@
 package io.codelex.arithmetic.practice;
 
-public class webCrawler {
+import java.io.IOException;
+
+public class WebCrawler {
 
     public class InterestingClass {
 

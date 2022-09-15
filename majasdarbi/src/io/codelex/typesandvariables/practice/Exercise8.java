@@ -9,16 +9,15 @@ public class Exercise8 {
         calculateDays(5);
     }
 
-    public static double calculateMin(int minutes) {
+    public static void calculateMin(int minutes) {
         double days = minutes * 0.000694;
-        System.out.println( minutes + " minutes is days : " + days);
-        return days;
+        System.out.println(minutes + " minutes is days : " + days);
     }
 
-    public static double calculateDays(int minutes) {
-        double years = minutes * 1.901 * Math.pow(10,-6);
+    public static void calculateDays(int minutes) {
+        double years = minutes * 1.901 * Math.pow(10, -6);
         System.out.println(minutes + " minutes is years: " + years);
-        return years;
+
     }
 
 

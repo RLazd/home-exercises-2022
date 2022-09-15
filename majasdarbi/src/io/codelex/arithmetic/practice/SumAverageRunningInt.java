@@ -6,11 +6,10 @@ public class SumAverageRunningInt {
         double average;
         int lowerBound = 1;
         int upperBound = 100;
-        int count = 0;
+        int count = upperBound - lowerBound + 1;
 
         for (int number = lowerBound; number <= upperBound; ++number) {
             sum += number;
-            count++;
         }
 
         average = (double)sum/count;

@@ -8,21 +8,29 @@ public class TicTacToe {
 
     private static char[][] board = new char[3][3];
 
+    private static boolean playAgain = true;
+
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
 
-        initBoard();
-        displayBoard();
+        while (playAgain) {
+            Scanner keyboard = new Scanner(System.in);
 
-        do {
-            play();
-        } while (checkWinner(board) != 'x' && checkWinner(board) != 'o' && !isTie(board));
+            initBoard();
+            displayBoard();
+
+            do {
+                play();
+            } while (checkWinner(board) != 'x' && checkWinner(board) != 'o' && !isTie(board));
 
 
-        determineResult();
-        playAgain();
+            determineResult();
+
+
+            playAgain();
+        }
 
     }
+
 
     private static void playAgain() {
         Scanner in = new Scanner(System.in);
@@ -31,9 +39,11 @@ public class TicTacToe {
         String play = in.nextLine();
 
         if (play.equals("Y")) {
-            main(null);
+            playAgain = true;
         } else if (play.equals("N")) {
             System.out.println("Nice game!");
+            System.exit(0);
+            playAgain = false;
         } else {
             System.out.println("Enter Y or N!");
             playAgain();

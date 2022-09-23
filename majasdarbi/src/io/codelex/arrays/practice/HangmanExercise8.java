@@ -12,24 +12,31 @@ public class HangmanExercise8 {
     private static int timesGuessed;
     private static int maxAllowedGuessTimes;
 
+    public static boolean playAgain = true;
+
 
     public static void main(String[] args) {
-        word = randomlyChooseWordFromWordList();
-        maxAllowedGuessTimes = word.length() + 5;
-        missedLettersFromWord = new StringBuilder();
 
-        System.out.println(word);
+        while (playAgain) {
+            word = randomlyChooseWordFromWordList();
+            timesGuessed = 0;
+            maxAllowedGuessTimes = word.length() + 3;
+            missedLettersFromWord = new StringBuilder();
 
-        correctLettersFromWord = "_".repeat(word.length());
-        System.out.println(correctLettersFromWord);
+            System.out.println(word);
 
-        while (!isWordGuessed() &&
-                timesGuessed <= maxAllowedGuessTimes) {
-            play();
+            correctLettersFromWord = "_".repeat(word.length());
+            System.out.println(correctLettersFromWord);
+
+            while (!isWordGuessed() &&
+                    timesGuessed <= maxAllowedGuessTimes) {
+                play();
+            }
+
+            determineResult();
+            playAgain();
+
         }
-
-        determineResult();
-        playAgain();
 
     }
 
@@ -96,9 +103,11 @@ public class HangmanExercise8 {
 
         if (answer.equals("Y")) {
             System.out.println("New game!");
-            main(null);
+            playAgain = true;
         } else if (answer.equals("N")) {
             System.out.println("Bye bye!");
+            System.exit(0);
+            playAgain = false;
         } else {
             System.out.println(" Enter Y or N");
             playAgain();

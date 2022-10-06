@@ -15,7 +15,6 @@ public class SetQuiz {
         System.out.println(items);
         // What will be the output?
         // 1. [Apple, Orange, Banana]
-        // 2. [Apple, Orange, Banana, Apple]
-        // 3. Compilation error
+
     }
 }

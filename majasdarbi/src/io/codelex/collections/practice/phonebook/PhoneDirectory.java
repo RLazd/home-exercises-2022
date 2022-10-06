@@ -40,7 +40,7 @@ public class PhoneDirectory {
             if (dataCount == data.length) {
                 data = Arrays.copyOf(data, 2 * data.length);
             }
-            PhoneEntry newEntry = new PhoneEntry();  // Create a new pair.
+            PhoneEntry newEntry = new PhoneEntry(name, number);  // Create a new pair.
             newEntry.name = name;
             newEntry.number = number;
             data[dataCount] = newEntry;   // Add the new pair to the array.
@@ -48,4 +48,13 @@ public class PhoneDirectory {
         }
     }
 
+    public void getData() {
+        for (int i = 0; i < data.length; i++) {
+            System.out.println(data[i].toString());
+        }
+    }
+
+    public int getDataCount() {
+        return dataCount;
+    }
 }

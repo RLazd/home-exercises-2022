@@ -13,11 +13,9 @@ public class ArrayListExercise6 {
         colors.add("Orange");
         colors.add("White");
         colors.add("Black");
-
         System.out.println(colors);
 
-        //TODO: Remove the third element from the list.
-
+        colors.remove(2);
         System.out.println("After removing third element from the list: \n" + colors);
     }
 

@@ -18,7 +18,6 @@ public class Test {
         System.out.println(directoryTree.getNumber("BB"));
         directoryTree.putNumber("BB", "123456");
         directoryTree.putNumber("BB", "New number for BB");
-        //KAPEC IELIEKAS tukss?
         directoryTree.putNumber("", "123456");
 
         System.out.println(directoryTree.getData());
@@ -36,8 +35,8 @@ public class Test {
         System.out.println(directoryArray.getNumber("AB"));
 
         directoryArray.putNumber("", "123456");
-        //KPC NEDRUKAJAS TUKSS?
-        //directoryArray.getData();
+
+        directoryArray.getData();
         System.out.println(directoryArray.getDataCount());
 
 

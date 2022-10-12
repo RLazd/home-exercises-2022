@@ -1,6 +1,7 @@
 package io.codelex.streams.practice;
 
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
@@ -13,7 +14,6 @@ public class CharacterToStringCollector implements Collector<Character, StringBu
     @Override
     public Supplier<StringBuilder> supplier() {
         return () -> new StringBuilder();
-
     }
 
     @Override
@@ -28,11 +28,12 @@ public class CharacterToStringCollector implements Collector<Character, StringBu
 
     @Override
     public Function<StringBuilder, String> finisher() {
-        return (stringBuilder) -> stringBuilder.toString();
+        return (sb) -> sb.toString();
     }
 
     @Override
     public Set<Characteristics> characteristics() {
-        return EnumSet.of(Characteristics.CONCURRENT);
+        return new HashSet<>();
+        //return EnumSet.of(Characteristics.CONCURRENT);
     }
 }

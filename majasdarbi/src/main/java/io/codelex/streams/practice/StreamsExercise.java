@@ -15,15 +15,17 @@ public class StreamsExercise {
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user) {
-        List<Integer> ages = new ArrayList<>();
-        user.stream().forEach(us -> ages.add(us.getAge()));
-        return ages;
+        return user.stream()
+                    .map(User::getAge)
+                    .toList();
     }
 
     public static List<Integer> getDistinctAges(List<User> users) {
-        Set<Integer> ages = new HashSet<>();
-        users.stream().forEach(user -> ages.add(user.getAge()));
-        return ages.stream().toList();
+       return users.stream()
+                    .map(User::getAge)
+                    .distinct()
+                    .toList();
+
     }
 
     public static List<User> getLimitedUserList(List<User> users, int limit) {
@@ -47,19 +49,17 @@ public class StreamsExercise {
     }
 
     public static List<String> getFirstNames(List<String> names) {
-        List<String> firstNames = new ArrayList<>();
-        names.stream().forEach(name -> firstNames.add(name.split(" ")[0]));
-        return firstNames;
+        return names.stream()
+                    .map(name->name.split(" ")[0])
+                    .toList();
     }
 
+    //.flatMap() = [[a, b], [c, d], [e, f]] => flatMap => [a, b, c, d ,e]
     public static List<String> getDistinctLetters(List<String> names) {
-        List<String> letters = new ArrayList<>();
-
-        names.stream().forEach(name -> {
-            Arrays.stream(name.split("")).forEach(let -> letters.add(let));
-        });
-
-        return letters.stream().distinct().toList();
+        return names.stream()
+                    .flatMap(name->Arrays.stream(name.split("")))
+                    .distinct()
+                    .toList();
     }
 
 
@@ -119,16 +119,13 @@ public class StreamsExercise {
         return stream.boxed();
     }
 
+    //IntStream.range(start, end excl)
     public static List<Integer> generateFirst10PrimeNumbers() {
-        List<Integer> primes = new ArrayList<>();
-        int i = 2;
-        while (primes.size() != 10) {
-            if (isPrime(i)) {
-                primes.add(i);
-            }
-            i++;
-        }
-        return primes;
+        return IntStream.range(2,100)
+                        .filter(StreamsExercise::isPrime)
+                        .limit(10)
+                        .boxed()
+                        .toList();
     }
 
     public static boolean isPrime(int number) {
@@ -136,9 +133,9 @@ public class StreamsExercise {
     }
 
     public static List<Integer> generate10RandomNumbers() {
-        List<Integer> randomNumbers = new ArrayList<>();
-        new Random().ints(10).forEach(num -> randomNumbers.add(num));
-        return randomNumbers;
+        return new Random().ints(10)
+                            .boxed()
+                            .toList();
     }
 
     public static User findOldest(List<User> users) {

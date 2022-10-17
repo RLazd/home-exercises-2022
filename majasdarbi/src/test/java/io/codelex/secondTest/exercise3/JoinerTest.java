@@ -10,10 +10,10 @@ class JoinerTest {
     @Test
     public void shouldJointIntegersTogether() {
 
-        Joiner<Integer> joiner = new Joiner<>("-", (a, b) -> a.toString() + b);
+        Joiner<Integer> joiner = new Joiner<>("-");
 
         String result = joiner.join(1, 2, 3, 4);
 
-        assertEquals("1-2-3-4-", result);
+        assertEquals("1-2-3-4", result);
     }
 }

@@ -10,16 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class BasketTest {
     @Test
     public void shouldThrowBasketFullException() {
-        Basket apples = new Basket(10);
+        Basket apples = new Basket();
+        for (int i = 0; i < 10; i++) {
+            apples.addToBasket(new Apples());
+        }
         BasketFullException fullException = assertThrows(BasketFullException.class, () -> {
             apples.addToBasket(new Apples());
         });
-        Assertions.assertEquals("basket full", fullException.getMessage());
+        assertEquals("basket full", fullException.getMessage());
     }
 
     @Test
     public void shouldThrowBasketEmptyException() {
-        Basket apples = new Basket(0);
+        Basket apples = new Basket();
         BasketEmptyException emptyException = assertThrows(BasketEmptyException.class, () -> {
             apples.removeFromBasket();
         });

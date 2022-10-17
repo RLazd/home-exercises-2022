@@ -4,29 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket<T> {
-    List<T> basket = new ArrayList<>();
-    int basketCurrentSize;
+    private List<T> basket = new ArrayList<>();
     final int MAX_SIZE = 10;
     final int MIN_SIZE = 0;
 
-    public Basket(int basketCurrentSize) {
-        this.basketCurrentSize = basketCurrentSize;
-    }
-
     public void addToBasket(T thingToAdd) {
-        if (basketCurrentSize == MAX_SIZE) {
+        if (basket.size() == MAX_SIZE) {
             throw new BasketFullException("basket full");
         }
         basket.add(thingToAdd);
-        basketCurrentSize++;
     }
 
     public void removeFromBasket() {
-        if (basketCurrentSize == MIN_SIZE) {
+        if (basket.size() == MIN_SIZE) {
             throw new BasketEmptyException("basket empty");
         }
         basket.remove(basket.size() - 1);
-        basketCurrentSize--;
     }
 
 

@@ -1,23 +1,21 @@
 package io.codelex.secondTest.exercise3;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 public class Joiner<T> {
 
-    String separator;
-    BiFunction functionToMakeString;
+    private String separator;
 
-    public Joiner(String separator, BiFunction functionToMakeString) {
+    public Joiner(String separator) {
         this.separator = separator;
-        this.functionToMakeString = functionToMakeString;
     }
 
     public String join(T... objects) {
-        String result = "";
-        for (T object : objects) {
-            result += functionToMakeString.apply(object, separator);
-        }
-        return result;
+        return Arrays.stream(objects)
+                        .map(T::toString)
+                        .collect(Collectors.joining(separator));
     }
 
 }

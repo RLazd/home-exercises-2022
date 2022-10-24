@@ -9,7 +9,7 @@ public class RunCar {
         System.out.println("First fuel amount: " + fuelGauge.getCurrentFuelAmount());
         System.out.println("Start mileage " + odometer.getCurrentMileage());
 
-        int maxLitersToFill = (int) (fuelGauge.maxFuelAmount - fuelGauge.getCurrentFuelAmount());
+        int maxLitersToFill = (int) (fuelGauge.MAX_FUEL_AMOUNT - fuelGauge.getCurrentFuelAmount());
         for (int i = 0; i < maxLitersToFill; i++) {
             fuelGauge.incrementFuelAmount();
         }
@@ -17,7 +17,7 @@ public class RunCar {
         System.out.println("Should be full fuel amount: " + fuelGauge.getCurrentFuelAmount());
 
 
-        while (fuelGauge.minFuelAmount != fuelGauge.getCurrentFuelAmount()) {
+        while (fuelGauge.MIN_FUEL_AMOUNT != fuelGauge.getCurrentFuelAmount()) {
             odometer.incrementMileage();
             //System.out.println(fuelGauge.getCurrentFuelAmount());
             //System.out.println(odometer.getCurrentMileage());

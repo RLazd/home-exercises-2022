@@ -16,7 +16,6 @@ public class SavingAccountTest {
         int interestRate = scanner.nextInt();
 
         SavingsAccount account = new SavingsAccount(startingBalance, months);
-        //System.out.println(account.balance);
 
         for (int i = 1; i <= months; i++) {
 

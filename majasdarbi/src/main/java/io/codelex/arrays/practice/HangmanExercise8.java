@@ -1,11 +1,11 @@
 package io.codelex.arrays.practice;
 
-import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class HangmanExercise8 {
 
-    private static String[] wordList = new String[]{"robot", "machine", "car", "leviathan", "plane", "hyacinth"};
+    private static final String[] WORD_LIST = new String[]{"robot", "machine", "car", "leviathan", "plane", "hyacinth"};
     private static String word;
     private static String correctLettersFromWord;
     private static StringBuilder missedLettersFromWord;
@@ -50,14 +50,14 @@ public class HangmanExercise8 {
             for (int i = 0; i < word.length(); i++) {
                 if (word.charAt(i) == guessedLetter) {
                     correctLettersFromWord =
-                            correctLettersFromWord.substring(0, i) +
-                                    guessedLetter +
-                                    correctLettersFromWord.substring(i + 1);
+                                    correctLettersFromWord.substring(0, i)
+                                    + guessedLetter
+                                    + correctLettersFromWord.substring(i + 1);
                 }
             }
 
         } else {
-            missedLettersFromWord.append(String.valueOf(guessedLetter));
+            missedLettersFromWord.append(guessedLetter);
 
         }
 
@@ -91,8 +91,9 @@ public class HangmanExercise8 {
 
 
     private static String randomlyChooseWordFromWordList() {
-        int randomNumber = (int) (Math.random() * (wordList.length));
-        return wordList[randomNumber];
+        Random random = new Random();
+        int randomNumber = random.nextInt(WORD_LIST.length);
+        return WORD_LIST[randomNumber];
     }
 
     private static void playAgain() {

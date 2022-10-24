@@ -111,22 +111,40 @@ public class TicTacToe {
     }
 
     private static char checkWinner(char[][] board) {
+        char winner = '-';
 
-        //rows
-        for (int i = 0; i < 3; i++) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
-                return board[i][0];
-            }
+        if (checkRows() != winner) {
+            return checkRows();
+        }
+        if (checkColumns() != winner) {
+            return checkColumns();
+        }
+        if (checkDiagonals() != winner) {
+            return checkDiagonals();
         }
 
-        //col
+        return winner;
+    }
+
+    private static char checkColumns() {
         for (int j = 0; j < 3; j++) {
             if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
                 return board[0][j];
             }
         }
+        return '-';
+    }
 
-        //diag
+    private static char checkRows() {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
+                return board[i][0];
+            }
+        }
+        return '-';
+    }
+
+    private static char checkDiagonals() {
         if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != '-') {
             return board[0][0];
         }
@@ -134,7 +152,6 @@ public class TicTacToe {
         if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[2][0] != '-') {
             return board[2][0];
         }
-
         return '-';
     }
 

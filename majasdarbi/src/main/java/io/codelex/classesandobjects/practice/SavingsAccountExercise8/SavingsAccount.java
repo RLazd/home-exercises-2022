@@ -4,8 +4,6 @@ public class SavingsAccount {
 
     double startingBalance;
     double balance;
-    //int annualInterestRate;
-
     double totalDeposited;
     double totalWithdrawn;
     double totalInterest;
@@ -15,7 +13,6 @@ public class SavingsAccount {
     public SavingsAccount(double startingBalance, int monthsOpened) {
         this.startingBalance = startingBalance;
         this.balance = startingBalance;
-        //this.annualInterestRate = annualInterestRate;
         this.monthsOpened = monthsOpened;
     }
 

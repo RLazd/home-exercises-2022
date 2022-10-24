@@ -1,10 +1,12 @@
 package io.codelex.classesandobjects.practice.Car;
 
-//liters per km changet to: liters per 100km
+//liters per km changed to: liters per 100km
 public class Car {
-    double startKilometers;
-    double endKilometers;
-    double liters;
+    private final int GAS_HOG_CONSUMPTION = 15;
+    private final int ECONOMY_CAR_CONSUMPTION = 5;
+    private double startKilometers;
+    private double endKilometers;
+    private double liters;
 
     public Car(double startKilometers) {
         this.startKilometers = startKilometers;
@@ -18,12 +20,12 @@ public class Car {
     }
 
     public boolean isGasHog() {
-        return calculateConsumption() > 15;
+        return calculateConsumption() > GAS_HOG_CONSUMPTION;
 
     }
 
     public boolean isEconomyCar() {
-        return calculateConsumption() < 5;
+        return calculateConsumption() < ECONOMY_CAR_CONSUMPTION;
 
     }
 

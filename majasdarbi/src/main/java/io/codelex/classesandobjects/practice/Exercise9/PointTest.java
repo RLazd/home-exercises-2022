@@ -7,8 +7,8 @@ public class PointTest {
         Point p2 = new Point(-3, 6);
         Point.swapPoints(p1, p2);
 
-        System.out.println("(" + p1.x + ", " + p1.y + ")");
-        System.out.println("(" + p2.x + ", " + p2.y + ")");
+        System.out.println("(" + p1.getX() + ", " + p1.getY() + ")");
+        System.out.println("(" + p2.getX() + ", " + p2.getY() + ")");
 
 
     }

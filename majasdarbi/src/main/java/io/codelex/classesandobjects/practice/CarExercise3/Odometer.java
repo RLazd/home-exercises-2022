@@ -1,11 +1,9 @@
 package io.codelex.classesandobjects.practice.CarExercise3;
 
 public class Odometer {
-
-    // VARIABLES
+    private final int MAX_MILEAGE = 999999;
     private int startMileage;
     private int currentMileage;
-    private int maxMileage = 999999;
     private int kilometersIncremented = 0;
 
     private FuelGauge fuelGauge;
@@ -21,7 +19,7 @@ public class Odometer {
     }
 
     public void incrementMileage() {
-        if (currentMileage <= maxMileage) {
+        if (currentMileage <= MAX_MILEAGE) {
             currentMileage += 1;
         } else {
             currentMileage = 0;

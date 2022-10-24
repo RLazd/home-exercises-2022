@@ -1,8 +1,8 @@
 package io.codelex.classesandobjects.practice.Exercise9;
 
 public class Point {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     public void setX(int x) {
         this.x = x;
@@ -28,4 +28,11 @@ public class Point {
         p2.setY(temp.y);
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
